@@ -6,9 +6,13 @@ async function getUsernames(req, res) {
   res.send("Usernames: " + usernames.map((user) => user.username).join(", "));
 }
 
-async function createUsernameGet(req, res) {
-  res.render("../views/new.ejs");
+async function deleteUsernames(req, res) {
+  await db.deleteAllUsernames();
 }
+
+// async function createUsernameGet(req, res) {
+//   res.render("../views/new.ejs");
+// }
 
 async function createUsernamePost(req, res) {
   const { username } = req.body;
@@ -18,6 +22,6 @@ async function createUsernamePost(req, res) {
 
 module.exports = {
   getUsernames,
-  createUsernameGet,
+  deleteUsernames,
   createUsernamePost,
 };

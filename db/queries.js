@@ -5,11 +5,16 @@ async function getAllUsernames() {
   return rows;
 }
 
+async function deleteAllUsernames() {
+  await pool.query("DROP TABLE usernames");
+}
+
 async function insertUsername(username) {
   await pool.query("INSERT INTO usernames (username) VALUES ($1)", [username]);
 }
 
 module.exports = {
   getAllUsernames,
+  deleteAllUsernames,
   insertUsername,
 };

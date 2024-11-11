@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const {
   getUsernames,
-  createUsernameGet,
+  deleteUsernames,
   createUsernamePost,
 } = require("../controllers/usernameController");
 const router = Router();
@@ -15,5 +15,9 @@ router.get("/new", (req, res) => {
 router.post("/new", (req, res) => {
   console.log("username to be saved : ", req.body.username);
   createUsernamePost(req, res);
+});
+router.get("/delete", (req, res) => {
+  console.log("deleting usernames...");
+  deleteUsernames(req, res);
 });
 module.exports = router;
