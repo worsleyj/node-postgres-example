@@ -1,8 +1,9 @@
 const { Router } = require("express");
+const { getUsernames } = require("../controllers/usernameController");
 const router = Router();
 
 router.get("/", (req, res) => {
-  res.send("usernames will be logged here");
+  getUsernames(req, res);
 });
 router.get("/new", (req, res) => {
   res.render("new");
