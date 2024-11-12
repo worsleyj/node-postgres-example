@@ -21,6 +21,9 @@ router.get("/delete", (req, res) => {
   deleteUsernames(req, res);
 });
 router.get("/search", (req, res) => {
+  res.render("search");
+});
+router.post("/search", (req, res) => {
   searchUsernames(req, res);
 });
 module.exports = router;
