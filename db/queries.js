@@ -9,10 +9,9 @@ async function deleteAllUsernames() {
   await pool.query("DROP TABLE usernames");
 }
 
-async function searchAllUsernames() {
-  const query = "o";
+async function searchAllUsernames(query) {
   const { rows } = await pool.query(
-    "SELECT * FROM usernames WHERE username LIKE '%o%'"
+    "SELECT * FROM usernames WHERE username LIKE '%" + query + "%' "
   );
   return rows;
 }
