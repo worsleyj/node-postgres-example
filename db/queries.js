@@ -9,6 +9,10 @@ async function deleteAllUsernames() {
   await pool.query("DROP TABLE usernames");
 }
 
+async function searchUsernames(query) {
+  await pool.query("SELECT * FROM usernames WHERE ");
+}
+
 async function insertUsername(username) {
   await pool.query("INSERT INTO usernames (username) VALUES ($1)", [username]);
 }
