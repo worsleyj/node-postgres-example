@@ -9,8 +9,12 @@ async function deleteAllUsernames() {
   await pool.query("DROP TABLE usernames");
 }
 
-async function searchUsernames(query) {
-  await pool.query("SELECT * FROM usernames WHERE ");
+async function searchAllUsernames() {
+  const query = "o";
+  const { rows } = await pool.query(
+    "SELECT * FROM usernames WHERE username LIKE '%o%'"
+  );
+  return rows;
 }
 
 async function insertUsername(username) {
@@ -20,5 +24,6 @@ async function insertUsername(username) {
 module.exports = {
   getAllUsernames,
   deleteAllUsernames,
+  searchAllUsernames,
   insertUsername,
 };

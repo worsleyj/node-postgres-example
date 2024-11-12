@@ -2,6 +2,7 @@ const { Router } = require("express");
 const {
   getUsernames,
   deleteUsernames,
+  searchUsernames,
   createUsernamePost,
 } = require("../controllers/usernameController");
 const router = Router();
@@ -18,5 +19,8 @@ router.post("/new", (req, res) => {
 router.get("/delete", (req, res) => {
   console.log("deleting usernames...");
   deleteUsernames(req, res);
+});
+router.get("/search", (req, res) => {
+  searchUsernames(req, res);
 });
 module.exports = router;
