@@ -11,9 +11,14 @@ async function deleteUsernames(req, res) {
 }
 
 async function searchUsernames(req, res) {
-  const usernames = await db.searchAllUsernames(req.body);
-  console.log("Usernames: ", usernames);
-  res.send("Usernames: " + usernames.map((user) => user.username).join(", "));
+  const { query } = req.body;
+  const usernames = await db.searchAllUsernames(query);
+  res.send(
+    'Usernames containing "' +
+      query +
+      '": ' +
+      usernames.map((user) => user.username).join(", ")
+  );
 }
 
 async function createUsernamePost(req, res) {

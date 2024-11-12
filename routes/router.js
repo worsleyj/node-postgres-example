@@ -24,6 +24,8 @@ router.get("/search", (req, res) => {
   res.render("search");
 });
 router.post("/search", (req, res) => {
+  console.log("searching" + req.body);
+
   searchUsernames(req, res);
 });
 module.exports = router;
